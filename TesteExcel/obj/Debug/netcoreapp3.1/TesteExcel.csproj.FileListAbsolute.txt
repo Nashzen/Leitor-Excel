@@ -308,8 +308,6 @@ C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\bin\Debug\netcoreapp3.1\runtime
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.csprojAssemblyReference.cache
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.AssemblyInfoInputs.cache
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.AssemblyInfo.cs
-C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.csproj.CoreCompileInputs.cache
-C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.RazorAssemblyInfo.cache
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.RazorAssemblyInfo.cs
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.TagHelpers.input.cache
@@ -336,3 +334,6 @@ C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\staticw
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.dll
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.pdb
 C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.genruntimeconfig.cache
+C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\bin\Debug\netcoreapp3.1\EPPlus.dll
+C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.csproj.CoreCompileInputs.cache
+C:\Users\leo-s\Documents\Leitor-Excel\TesteExcel\obj\Debug\netcoreapp3.1\TesteExcel.MvcApplicationPartsAssemblyInfo.cache

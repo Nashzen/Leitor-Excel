@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using TesteExcel.Models;
 
 namespace TesteExcel.Controllers
@@ -16,6 +20,77 @@ namespace TesteExcel.Controllers
         public CreateActivityRequestsController(BancoContext context)
         {
             _context = context;
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UploadFile(IFormFile file)
+        {
+            try
+            {
+                var filePath = Path.GetTempFileName();
+
+                IList<string> erros = new List<string>();
+
+                if (file.Length > 0)
+                {
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+
+                        try
+                        {
+                            var activities = new List<CreateActivityRequests>();
+
+                            using (ExcelPackage xlPackage = new ExcelPackage(stream))
+                            {
+                                var myWorksheet = xlPackage.Workbook.Worksheets.First();
+                                var totalRows = myWorksheet.Dimension.End.Row;
+                                var totalColumns = myWorksheet.Dimension.End.Column;
+
+                                var sb = new StringBuilder();
+                                for (int rowNum = 1; rowNum <= totalRows; rowNum++)
+                                {
+                                    var row = myWorksheet.Cells[rowNum, 1, rowNum, totalColumns].Select(c => c.Value == null ? string.Empty : c.Value.ToString());
+
+                                    if (row.Count() > 0 && !string.IsNullOrEmpty(row.ToList()[0]))
+                                    {
+                                        var request = new CreateActivityRequests();
+                                        request.Description = row.ToList()[0];
+                                        request.Quantity = row.ToString()[1];
+                                        request.Points = row.ToString()[2];
+                                        request.Period = row.ToString()[3];
+
+                                        activities.Add(request);
+                                    }
+                                }
+
+                                foreach (var activity in activities)
+                                {
+                                    //Chama o service da atividade para salvar o registro
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            throw ex;
+                        }
+                    }
+                }
+                //if (_serviceCity.Notifications.Any())
+                //{
+                //    foreach (var notification in _serviceCity.Notifications)
+                //    {
+                //        erros.Add(notification.Message);
+                //    }
+                //}
+
+                return Json(erros);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "File upload failed!!";
+                return Json("Erro");
+            }
         }
 
         // GET: CreateActivityRequests
