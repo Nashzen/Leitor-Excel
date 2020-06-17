@@ -56,9 +56,9 @@ namespace TesteExcel.Controllers
                                     {
                                         var request = new CreateActivityRequests();
                                         request.Description = row.ToList()[0];
-                                        request.Quantity = row.ToString()[1];
-                                        request.Points = row.ToString()[2];
-                                        request.Period = row.ToString()[3];
+                                        request.Quantity = Convert.ToInt32(row.ToList()[1]);
+                                        request.Points = Convert.ToInt32(row.ToList()[2]);
+                                        request.Period = Convert.ToInt32(row.ToList()[3]);
 
                                         activities.Add(request);
                                     }
